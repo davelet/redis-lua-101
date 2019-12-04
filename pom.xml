@@ -18,6 +18,7 @@
     <modules>
         <module>redis-pipeline</module>
         <module>redis-lua-junior</module>
+        <module>redis-lua-senior</module>
     </modules>
 
 
