@@ -32,7 +32,7 @@ public class PipelineTest {
 
     private static void withoutPipeline(Jedis jedis) {
         var start = Instant.now();
-        for (int i = 0; i < COMMAND_NUM; i++) {
+        for (var i = 0; i < COMMAND_NUM; i++) {
             jedis.set("no_pipe_" + i, String.valueOf(i), SetParams.setParams().ex(60));
         }
         var end = Instant.now();
@@ -43,7 +43,7 @@ public class PipelineTest {
     private static void withPipeline(Jedis jedis) {
         var pipe = jedis.pipelined();
         var start_pipe = Instant.now();
-        for (int i = 0; i < COMMAND_NUM; i++) {
+        for (var i = 0; i < COMMAND_NUM; i++) {
             pipe.set("pipe_" + i, String.valueOf(i), SetParams.setParams().ex(60));
         }
         pipe.sync(); // 获取所有的response
