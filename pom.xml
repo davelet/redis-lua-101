@@ -17,6 +17,7 @@
     </build>
     <modules>
         <module>redis-pipeline</module>
+        <module>redis-lua-junior</module>
     </modules>
 
 
