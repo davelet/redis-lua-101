@@ -18,8 +18,9 @@ public class RedisLuaPipelineApplication {
         var context = SpringApplication.run(RedisLuaPipelineApplication.class, args);
 
         var redisTemplate = (RedisTemplate<String, String>) context.getBean("redisTemplate");
-        redisTemplate.setKeySerializer(StringRedisSerializer.UTF_8);
-        redisTemplate.setValueSerializer(StringRedisSerializer.UTF_8);
+        StringRedisSerializer utf8 = StringRedisSerializer.UTF_8;
+        redisTemplate.setKeySerializer(utf8);
+        redisTemplate.setValueSerializer(utf8);
 
         var list = new ArrayList<String>(1);
         list.add("100000");
@@ -28,13 +29,33 @@ public class RedisLuaPipelineApplication {
         var script = new DefaultRedisScript<String>();
         script.setResultType(String.class);
         script.setLocation(new ClassPathResource("lua.lua"));
-        String execute = redisTemplate.execute(script, StringRedisSerializer.UTF_8, StringRedisSerializer.UTF_8, list);
+        String execute = redisTemplate.execute(script, utf8, utf8, list);
         System.out.println(execute + " " + Duration.between(start, Instant.now()));
         start = Instant.now();
-        execute = redisTemplate.execute(script, StringRedisSerializer.UTF_8, StringRedisSerializer.UTF_8, list);
+        execute = redisTemplate.execute(script, utf8, utf8, list);
         System.out.println(execute + " " + Duration.between(start, Instant.now()));
         start = Instant.now();
-        execute = redisTemplate.execute(script, StringRedisSerializer.UTF_8, StringRedisSerializer.UTF_8, list);
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
+        System.out.println(execute + " " + Duration.between(start, Instant.now()));
+        start = Instant.now();
+        execute = redisTemplate.execute(script, utf8, utf8, list);
         System.out.println(execute + " " + Duration.between(start, Instant.now()));
     }
 

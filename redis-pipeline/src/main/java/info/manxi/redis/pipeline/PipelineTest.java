@@ -21,7 +21,7 @@ public class PipelineTest {
     private static final int COMMAND_NUM = 100000;
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis("localhost", 6379);
+        var jedis = new Jedis("localhost", 6379);
         withoutPipeline(jedis);
         withPipeline(jedis);
         withoutPipeline(jedis);
