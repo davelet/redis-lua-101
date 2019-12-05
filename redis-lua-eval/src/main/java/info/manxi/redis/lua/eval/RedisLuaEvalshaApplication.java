@@ -15,16 +15,16 @@ import java.util.ArrayList;
 public class RedisLuaEvalshaApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(RedisLuaEvalshaApplication.class, args);
+        var context = SpringApplication.run(RedisLuaEvalshaApplication.class, args);
 
-        RedisTemplate<String, String> redisTemplate = (RedisTemplate<String, String>) context.getBean("redisTemplate");
+        var redisTemplate = (RedisTemplate<String, String>) context.getBean("redisTemplate");
         redisTemplate.setKeySerializer(StringRedisSerializer.UTF_8);
         redisTemplate.setValueSerializer(StringRedisSerializer.UTF_8);
 
         redisTemplate.opsForValue().set("name", "Who");
         System.out.println(redisTemplate.opsForValue().get("name"));
 
-        ArrayList<String> list = new ArrayList<>(1);
+        var list = new ArrayList<String>(1);
         list.add("name");
         String execute = redisTemplate.execute(new RedisScript<>() {
             @Override

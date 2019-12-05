@@ -18,7 +18,7 @@ import java.time.Instant;
  * @author sheldon yhid: 80752866
  */
 public class PipelineTest {
-    private static final int COMMAND_NUM = 10000;
+    private static final int COMMAND_NUM = 100000;
 
     public static void main(String[] args) {
         Jedis jedis = new Jedis("localhost", 6379);
