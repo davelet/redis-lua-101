@@ -30,19 +30,19 @@ public class RedisBatchQueryApplication {
     private static void mget(RedisTemplate<String, String> redisTemplate) {
         var start = Instant.now();
         List<String> list = new ArrayList<>(10_0000);
-        for (var i = 1; i <= 10; i++) {
+        for (var i = 1; i <= 10000; i++) {
             list.add("lua_" + i);
         }
 
         List<String> strings = redisTemplate.opsForValue().multiGet(list);
-        System.out.println(strings);
+//        System.out.println(strings);
         System.out.println("mget: " + Duration.between(start, Instant.now()));
     }
 
     private static void pipeget(RedisTemplate<String, String> redisTemplate) {
         var start = Instant.now();
         List<Object> list = redisTemplate.executePipelined((RedisCallback<String>) redisConnection -> {
-            for (var i = 1; i <= 10; i++) {
+            for (var i = 1; i <= 10000; i++) {
                 redisConnection.get(StringRedisSerializer.UTF_8.serialize("lua_" + i));
             }
             return null;

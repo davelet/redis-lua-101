@@ -28,3 +28,13 @@ mvnw*
 .mvn/
 target/
 
+将删除 redis-lua-eval/src/test/
+将删除 redis-lua-junior/src/
+将删除 redis-lua-senior/src/
+将删除 redis-lua-sha/src/
+将删除 redis-pipeline-jedis/src/test/
+将删除 redis-pipeline-lua/src/test/
+将删除 redis-pipeline-mget/src/test/
+将删除 redis-pipeline/src/main/resources/
+将删除 redis-pipeline/src/test/
+将删除 redis-transaction/src/test/

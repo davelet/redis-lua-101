@@ -1,7 +1,6 @@
 package info.manxi.redis.pipeline;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.params.SetParams;
 
 import java.time.Duration;
@@ -21,7 +20,7 @@ public class PipelineTest {
     private static final int COMMAND_NUM = 100000;
 
     public static void main(String[] args) {
-        var jedis = new Jedis("localhost", 6379);
+        var jedis = new Jedis("127.0.0.1", 6379);
         withoutPipeline(jedis);
         withPipeline(jedis);
         withoutPipeline(jedis);
