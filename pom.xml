@@ -22,6 +22,7 @@
         <module>redis-lua-sha</module>
         <module>redis-lua-eval</module>
         <module>redis-pipeline-lua</module>
+        <module>redis-transaction</module>
     </modules>
 
 
