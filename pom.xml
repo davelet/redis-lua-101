@@ -23,6 +23,7 @@
         <module>redis-lua-eval</module>
         <module>redis-pipeline-lua</module>
         <module>redis-transaction</module>
+        <module>redis-pipeline-mget</module>
     </modules>
 
 

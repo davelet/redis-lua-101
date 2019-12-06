@@ -32,7 +32,7 @@ public class RedisTemplateSessionCallback {
                 System.out.println("watch");
                 try {
                     Thread.sleep(TimeUnit.SECONDS.toMillis(10));
-                    // 去修改值
+                    // 这个时候去修改name 值
                 } catch (InterruptedException e) {
 
                 }
