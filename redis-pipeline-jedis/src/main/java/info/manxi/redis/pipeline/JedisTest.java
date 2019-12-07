@@ -49,7 +49,8 @@ public class JedisTest {
         var start = Instant.now();
         String lua = readFileContent(JedisTest.class.getResource("/lua.lua").getFile());
         Object result = jedis.evalsha(jedis.scriptLoad(lua), Collections.singletonList("100000"), Collections.emptyList());
-        System.out.println(result);
+//        Object result = jedis.evalsha("25b8dee255b5591357c2132cf526a6b44e51d24b", Collections.singletonList("100000"), Collections.emptyList());
+//        System.out.println(result);
         System.out.println("withlua cost : " + Duration.between(start, Instant.now()));
     }
 

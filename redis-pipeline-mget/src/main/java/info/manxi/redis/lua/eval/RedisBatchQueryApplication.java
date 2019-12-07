@@ -47,7 +47,7 @@ public class RedisBatchQueryApplication {
             }
             return null;
         });
-        System.out.println(list);
+//        System.out.println(list);
         System.out.println("pipe: " + Duration.between(start, Instant.now()));
     }
 
