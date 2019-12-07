@@ -25,6 +25,7 @@
         <module>redis-transaction</module>
         <module>redis-pipeline-mget</module>
         <module>redis-pipeline-jedis</module>
+        <module>redis-cluster-multi</module>
     </modules>
 
 
